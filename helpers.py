@@ -29,3 +29,19 @@ def display_text(person1, person2, length):
     else:
         text = f"{person1} and {person2} starred together in {length} following movies:"
     return text
+
+@st.cache(show_spinner=False)
+def parse_filmography(personObject):
+    filmography = dict()
+    keyword = list(set(personObject["data"]["filmography"].keys()) & set(["actor", "actress"]))[0]
+    for film in personObject["data"]["filmography"][keyword]:
+        movieID = film.movieID
+        movieData = film.data
+        filmography[movieID] = movieData
+    return filmography
+
+@st.cache(show_spinner=False)
+def process_input(dataframe, text_input):
+    df = dataframe[dataframe["Name"].str.contains(text_input, case=False)]
+    df = df.sort_values(by=["Name"])
+    return df

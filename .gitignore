@@ -1,2 +1,4 @@
 # Ignore the raw CSV file
 /data/name.basics.tsv.gz
+
+*.pyc

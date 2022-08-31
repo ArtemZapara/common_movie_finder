@@ -1,4 +1,3 @@
-from re import I
 import pandas as pd
 
 def process_tsv():

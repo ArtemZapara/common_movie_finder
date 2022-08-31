@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 import imdb
 from helpers import *
 
@@ -18,7 +17,6 @@ with st.container():
     with clm:
         placeholder = st.empty()
 
-# col1, _, col2, _, col3 = st.columns([1,1,1,1,1])
 cols = st.columns([1,1,1,1])
 
 with cols[0]:
